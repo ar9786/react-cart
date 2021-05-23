@@ -4,9 +4,7 @@ function Home(props){
     
     return(
         <>
-            <div className="add-to-cart">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/496/007/small/Ecommerce_998.jpg"/>
-            </div>
+            
             <h1> Home Component </h1>
             <div className="cart-wrapper">
                 <div className="img-wrapper item">
@@ -18,6 +16,7 @@ function Home(props){
                 </div>
                 <div className="btn-wrapper item">
                     <button onClick={()=>props.addToCartHandler({price:1000,name:'I-phone 11'})}> Add To Cart </button>
+                    <button onClick={()=>props.removeToCartHandler()} className="remove-cart-button"> Remove To Cart </button>
                 </div>
             </div>
         </>

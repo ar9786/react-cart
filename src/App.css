@@ -40,7 +40,7 @@
 
 .cart-wrapper{
   width: 500px;
-  height: 100px;
+  height: 138px;
   border: 1px solid #ccc;
   margin-left:10px;
 }
@@ -50,7 +50,7 @@
 }
 .btn-wrapper button{
     color: #fff;
-    background-color: red;
+    background-color:seagreen;
     border: 0px;
     padding: 10px;
     border-radius: 4px;
@@ -68,4 +68,20 @@
   width: 100px;
   right: 1%;
   position: absolute;
+}
+.add-to-cart span{
+  position: absolute;
+  right:10px;
+  top:10px;
+  z-index: 1;
+  background-color: red;
+  padding: 0px 0px 0px 5px;
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  color:#fff;
+}
+.btn-wrapper .remove-cart-button{
+  background-color:red;
+  margin-top: 8px;
 }

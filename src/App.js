@@ -4,6 +4,7 @@ import About from './About';
 import Contact from './Contact';
 //import Home from './Home';
 import HomeContainer from './containers/HomeContainer';
+import HeaderContainer from './containers/HeaderContainer';
 import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
@@ -39,6 +40,7 @@ function App() {
             <Contact name="rahul" data={data}/>
           </Route>
           <Route path="/">
+            <HeaderContainer/>
             <HomeContainer />
           </Route>
       </Switch>

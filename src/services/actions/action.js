@@ -9,7 +9,7 @@ export const addToCart =(data)=>{
 
 export const removeToCart =(data)=>{
     return {
-        data: data,
+
         type: REMOVE_TO_CART
     }
 }
