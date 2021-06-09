@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import About from './About';
+import Login from './components/Login/Login';
 import Contact from './Contact';
 //import Home from './Home';
 import HomeContainer from './containers/HomeContainer';
@@ -19,19 +20,6 @@ function App() {
   return (
     <>
     <Router>
-      <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about-us">About</Link>
-              </li>
-              <li>
-                <Link to="/contact-us">Contact Us</Link>
-              </li>
-            </ul>
-      </nav>
       <Switch>
           <Route path="/about-us">
             <About data={data}/>
@@ -39,10 +27,14 @@ function App() {
           <Route path="/contact-us">
             <Contact name="rahul" data={data}/>
           </Route>
+          <Route path="/login">
+            <Login/>
+          </Route>
           <Route path="/">
             <HeaderContainer/>
-            <HomeContainer />
+            <HomeContainer />           
           </Route>
+          
       </Switch>
       {/* <button onClick={()=>setData({name:"rahul",age:"31"})}>Update prop</button> */}
     </Router>
