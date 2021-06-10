@@ -4,7 +4,7 @@ import {login} from '../services/actions/login'
 
 
 const mapStateToProps=state=>({
-    cartData:state
+    loginData:state.doLogin
 })
 const mapDispatchToProps=dispatch=>({
     loginHandler: data=>dispatch(login(data))

@@ -6,12 +6,14 @@ import Contact from './Contact';
 //import Home from './Home';
 import HomeContainer from './containers/HomeContainer';
 import HeaderContainer from './containers/HeaderContainer';
+import LoginContainer from './containers/LoginContainer';
+import ProfileContainer from './containers/ProfileContainer';
 import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  //Link
 } from "react-router-dom";
 
 
@@ -27,8 +29,12 @@ function App() {
           <Route path="/contact-us">
             <Contact name="rahul" data={data}/>
           </Route>
+          <Route path="/profile">
+            <HeaderContainer/>
+            <ProfileContainer/>
+          </Route>
           <Route path="/login">
-            <Login/>
+            <LoginContainer/>
           </Route>
           <Route path="/">
             <HeaderContainer/>

@@ -1,18 +1,18 @@
-import {LOGIN} from '../constants'
+import {PROFILE} from '../constants'
 
 const initialState = {
-    loginData: []
+    profileData: []
 }
 
 
-export default function doLogin(state=[], action){
+export default function getProfile(state=[], action){
     
     switch (action.type) {
        
-        case LOGIN:
+        case PROFILE:
             return [
                 ...state,
-                {loginData: action.data}
+                action.data
             ]
         default:
             return state

@@ -1,20 +1,29 @@
 import React,{useEffect,useState} from 'react';
-import reactDom from 'react-dom';
-import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './login.css';
-import {login} from '../../services/actions/login'
+import axios from 'axios';
 
 function Login(props){
     
     let [showRegistration,setshowRegistration] = useState(false);
     let [showForgotPassword,setShowForgotPassword] = useState(false);
-    const  [name,setName] = useState("");
+    const  [email,setEmail] = useState("");
     const  [password,setPassword] = useState(""); 
-    const dispatch = useDispatch();
+    let history = useHistory();
+    
     const loginHandler = (e) => {
         e.preventDefault();
-       let data = {name:name,password:password} 
-       dispatch(login(data));
+        let data = {email:email,password:password} 
+        
+        axios.post('https://reqres.in/api/login',data)
+        .then(response => { 
+    
+            localStorage.setItem('login_token', JSON.stringify(response.data));
+            props.loginHandler(data);
+            history.push('/profile');
+        })
+        .catch(error => { console.log(error); alert("Try Again"); })    
+
     }
     return(
         <>
@@ -28,8 +37,8 @@ function Login(props){
                 <button className="btn google-btn social-btn" type="button"><span><i className="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
             </div>
             <p style={{textAlign : 'center'}}> OR  </p>
-            <input type="email" className="form-control" placeholder="Email address"  onChange={(e)=> setName(e.target.value)} value={name}/>
-            <input type="password" className="form-control" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}/>
+            <input type="text" className="form-control" placeholder="Email address"  onChange={(e)=> setEmail(e.target.value)} value={email} autoComplete=""/>
+            <input type="password" className="form-control" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password} autoComplete=""/>
             
             <button className="btn btn-success btn-block" type="submit" ><i className="fas fa-sign-in-alt"></i> Sign in</button>
             <a href="#" id="forgot_pswd" onClick={()=>setShowForgotPassword(!showForgotPassword)}>Forgot password?</a>
