@@ -8,6 +8,7 @@ import HomeContainer from './containers/HomeContainer';
 import HeaderContainer from './containers/HeaderContainer';
 import LoginContainer from './containers/LoginContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import ProductsContainer from './containers/ProductsContainer';
 import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
@@ -21,7 +22,9 @@ function App() {
   const [data,setData] = useState({name:"Tommy",age:"28"})
   return (
     <>
+    
     <Router>
+    <HeaderContainer/>
       <Switch>
           <Route path="/about-us">
             <About data={data}/>
@@ -30,15 +33,14 @@ function App() {
             <Contact name="rahul" data={data}/>
           </Route>
           <Route path="/profile">
-            <HeaderContainer/>
             <ProfileContainer/>
           </Route>
           <Route path="/login">
             <LoginContainer/>
           </Route>
           <Route path="/">
-            <HeaderContainer/>
-            <HomeContainer />           
+            <ProductsContainer/>
+            <HomeContainer/>     
           </Route>
           
       </Switch>

@@ -20,7 +20,7 @@ function Profile(props){
 
     return(
         <>
-      {console.log(props)}
+      
             {props.profileData[0] ?
             <div className="container">
                 <div className="row">

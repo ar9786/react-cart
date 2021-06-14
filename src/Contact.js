@@ -5,7 +5,7 @@ function Contact(props){
     let [data,setData] = useState({name:"arvind",age:"20"});
     let [user,setUser] = useState([{name:"arvind",age:"20"},{name:"jyoti",age:"24"},{name:"sonika",age:"27"},{name:"subhangi",age:"28"}]);
     useEffect(()=>{
-        console.log("Hello from hook")
+       // console.log("Hello from hook")
     },[])
    // let data = "Contact Data";
 

@@ -13,7 +13,7 @@ class About extends React.Component {
         //console.log(this.props.data);
     }
     componentDidUpdate(){
-        console.log("componentdidUpdate");
+        //console.log("componentdidUpdate");
     }
     render(){
         return (
