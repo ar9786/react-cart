@@ -14,6 +14,7 @@ function Header(props) {
                 <Navbar.Brand href="#logo">Logo</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Link className="nav-link" to="/">Home</Link>
+                    <Link className="nav-link" to="/product">Products</Link>
                     <Link className="nav-link" to="/about-us">About</Link>
                     <Link className="nav-link" to="/contact-us">Contact Us</Link>
                 </Nav>

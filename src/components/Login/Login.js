@@ -13,14 +13,14 @@ function Login(props){
     
     const loginHandler = (e) => {
         e.preventDefault();
-        let data = {email:email,password:password} 
+        let data = {username:email,password:password} 
         
-        axios.post('https://reqres.in/api/login',data)
+        axios.post('https://fakestoreapi.com/auth/login',data)
         .then(response => { 
-    
-            localStorage.setItem('login_token', JSON.stringify(response.data));
+            
+            localStorage.setItem('login_token', JSON.stringify(response.data.token));
             props.loginHandler(data);
-            history.push('/profile');
+            history.push('/');
         })
         .catch(error => { console.log(error); alert("Try Again"); })    
 

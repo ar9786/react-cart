@@ -3,13 +3,14 @@ import './App.css';
 import About from './About';
 import Login from './components/Login/Login';
 import Contact from './Contact';
-//import Home from './Home';
+import Home from './Home';
 import HomeContainer from './containers/HomeContainer';
 import HeaderContainer from './containers/HeaderContainer';
 import LoginContainer from './containers/LoginContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import ProductsContainer from './containers/ProductsContainer';
 import React,{useState} from 'react';
+import Protected from './components/Protected';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,22 +27,24 @@ function App() {
     <Router>
     <HeaderContainer/>
       <Switch>
-          <Route path="/about-us">
-            <About data={data}/>
-          </Route>
-          <Route path="/contact-us">
+          
+          <Protected path='/' exact component={Home} />
+          <Protected path='/about-us' exact component={About}  data={data} />
+          <Protected path='/contact-us'  component={Contact}  data={data} />
+          <Protected path='/product'  component={ProductsContainer}  data={data} />
+          {/* <Route path="/contact-us">
             <Contact name="rahul" data={data}/>
-          </Route>
+          </Route> */}
           <Route path="/profile">
             <ProfileContainer/>
           </Route>
           <Route path="/login">
             <LoginContainer/>
           </Route>
-          <Route path="/">
+          {/* <Route path="/">
             <ProductsContainer/>
             <HomeContainer/>     
-          </Route>
+          </Route> */}
           
       </Switch>
       {/* <button onClick={()=>setData({name:"rahul",age:"31"})}>Update prop</button> */}

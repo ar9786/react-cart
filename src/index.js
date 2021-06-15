@@ -7,11 +7,14 @@ import ReduxThunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-import {applyMiddleware, createStore} from 'redux'
+import {applyMiddleware, createStore ,compose} from 'redux'
 import {Provider} from 'react-redux'
 import rootReducer from './services/reducers/index'
-const store = createStore(rootReducer,applyMiddleware(ReduxThunk))
 
+
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const store = createStore(rootReducer,composeEnhancers(applyMiddleware(ReduxThunk)))
 console.log(store);
 
 
